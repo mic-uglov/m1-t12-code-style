@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public class CalculateDeposit {
+public class DepositCalculator {
     private static final int PLACES = 2;
+
     private double calculateComplexPercent(double amount, double yearRate, int period) {
         double pay = amount * Math.pow((1 + yearRate / 12), 12 * period);
         return round(pay);
@@ -30,8 +31,7 @@ public class CalculateDeposit {
         double newAmount = 0;
         if (action == 1) {
             newAmount = calculateSimplePercent(amount, yearRate, period);
-        }
-        else if (action == 2) {
+        } else if (action == 2) {
             newAmount = calculateComplexPercent(amount, yearRate, period);
         }
         System.out.println("Результат вклада: " + amount + " за " +
@@ -39,6 +39,6 @@ public class CalculateDeposit {
     }
 
     public static void main(String[] args) {
-        new CalculateDeposit().calculate();
+        new DepositCalculator().calculate();
     }
 }
